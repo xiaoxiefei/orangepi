@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange Pi 状态监控</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="user-info" id="user-info" onclick="toggleLogoutMenu(event)">
+    <span id="userInfo">加载中...</span>
+</div>
+    <div class="logout-menu1" id="logout-menu">
+        <button onclick="logout()">退出登录</button>
+    </div>
+    <h1>Orange Pi 状态监控</h1>
+    <div class="container">
+        <div id="temperatures" class="card">
+            <h2>温度信息</h2>
+            <p>CPU 温度: <span id="cpu-temp">加载中...</span> °C</p>
+            <p>GPU 温度: <span id="gpu-temp">加载中...</span> °C</p>
+            <p>DDR 温度: <span id="ddr-temp">加载中...</span> °C</p>
+            <p>VE 温度: <span id="ve-temp">加载中...</span> °C</p>
+        </div>
+        <div id="memory" class="card">
+            <h2>内存使用情况</h2>
+            <p>总内存: <span id="mem-total">加载中...</span> MB</p>
+            <p>已使用: <span id="mem-used">加载中...</span> MB ( <span id="mem-percentage">加载中...</span>% )</p>
+            <p>空闲: <span id="mem-free">加载中...</span> MB</p>
+        </div>
+        <div id="processes" class="card" style="grid-column: span 2;">
+            <h2>运行进程</h2>
+            <table id="process-table">
+                <thead>
+                    <tr>
+                        <th>用户</th>
+                        <th>进程 ID</th>
+                        <th>CPU 使用率</th>
+                    </tr>
+                </thead>
+                <tbody id="process-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 隐藏的元素来存储登录状态 -->
+    <input type="hidden" id="isLoggedIn" value="false">
+
+    <script src="script.js"></script>
+</body>
+
+</html>
